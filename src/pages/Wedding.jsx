@@ -12,7 +12,6 @@ function Wedding() {
       </div>
     </div>
 
-
     </div>
     </>
   )
