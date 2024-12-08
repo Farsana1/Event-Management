@@ -17,18 +17,18 @@ const LoginRegister =()=>{
                     <div className='input-box'>
                         <input type="text" placeholder='Username' required/>
                     </div>
-                    <div className='input-box'>
+                    {/* <div className='input-box'>
                         <input type="email" placeholder='Email' required/>
                     </div>
                     <div className='input-box'>
                         <input type="text" placeholder='Organization name' required/>
-                    </div>
+                    </div> */}
                     <div className='input-box'>
                         <input type="password" placeholder='Password' required/>
                     </div>
-                    <div className='input-box'>
+                    {/* <div className='input-box'>
                         <input type="password" placeholder='ConfirmPassword' required/>
-                    </div>
+                    </div> */}
                     <div className='remember-forgot'>
                         <a href="#">Forgot password?</a>
                     </div>
