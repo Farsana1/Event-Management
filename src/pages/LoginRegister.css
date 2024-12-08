@@ -3,7 +3,7 @@
     padding: 0;
     box-sizing: border-box;
   }
-  body{
+  /* body{
     font-family: 'Arial', sans-serif;
     display: flex;
     justify-content: center;
@@ -12,7 +12,7 @@
     background: url('https://thumbs.dreamstime.com/b/luxury-table-settings-fine-dining-glassware-beautiful-blurred-background-events-weddings-preparation-holiday-passover-139822025.jpg ') no-repeat ;
     background-size: cover;
     background-position: center;
-  }
+  } */
 .wrapper{
     position: relative;
     width: 650px;
