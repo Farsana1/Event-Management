@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-function Birthday() {
+const Birthday = () => {
+  
   return (
-    <div>Birthday</div>
-  )
-}
+    <div>
+      Birthday
+    </div>
+  );
+};
 
-export default Birthday
+export default Birthday;

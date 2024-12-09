@@ -1,0 +1,106 @@
+.event-list {
+  font-family: 'Poppins', sans-serif;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 50px 20px;
+  background-color: #F7F7F7;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.event-list-title {
+  text-align: center;
+  color: #008080;
+  margin-bottom: 40px;
+  font-size: 2.8em;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.event-list-content {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+}
+
+.event-box {
+  flex: 1 1 calc(33.333% - 25px);
+  background: linear-gradient(135deg, #FFD700, #FF8E72); /* Stylish gradient */
+  padding: 40px 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1), 0 1px 4px #FFD700;
+  text-align: center;
+  color: #FFFFFF;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.event-box::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 120%;
+  background: rgba(255, 255, 255, 0.05);
+  transform: rotate(45deg);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.event-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2), 0 3px 6px #FFD700;
+}
+
+.event-box h3 {
+  z-index: 2;
+  margin-bottom: 15px;
+  font-size: 1.8em;
+  font-weight: 700;
+  position: relative;
+}
+
+.event-box p {
+  z-index: 2;
+  font-size: 1em;
+  margin-bottom: 20px;
+  color: #FCEAE6;
+  position: relative;
+}
+
+.event-link {
+  display: inline-block;
+  background-color: #FFFFFF;
+  color: #FFD700;
+  padding: 12px 25px;
+  border-radius: 30px;
+  font-size: 1em;
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  z-index: 2;
+  transition: all 0.3s ease;
+}
+
+.event-link:hover {
+  background-color: #FFD700;
+  color: #FFFFFF;
+  transform: scale(1.1);
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .event-box {
+    flex: 1 1 calc(50% - 25px);
+  }
+}
+
+@media (max-width: 480px) {
+  .event-box {
+    flex: 1 1 100%;
+  }
+}
