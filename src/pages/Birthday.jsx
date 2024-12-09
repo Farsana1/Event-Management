@@ -1,12 +1,12 @@
-<<<<<<< HEAD
+// <<<<<<< HEAD
 // import React from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Link } from "react-router-dom";
-=======
+// =======
 import React from 'react';
 // import 'bootstrap/dist/css/bootstrap.min.css';
->>>>>>> 29eea1e3b6b85685670537fed6cc04f46c373fb2
+// >>>>>>> 29eea1e3b6b85685670537fed6cc04f46c373fb2
 
 function Birthday() {
   return (
