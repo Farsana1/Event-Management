@@ -62,7 +62,7 @@ form .input-box{
 }
 .input-box input{
     width: 100%;
-    height: 50%;
+    height: 100%;
     background: transparent;
     border: none;
     outline: none;
