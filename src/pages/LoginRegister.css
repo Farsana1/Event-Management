@@ -1,22 +1,8 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-  /* body{
-    font-family: 'Arial', sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background: url('https://thumbs.dreamstime.com/b/luxury-table-settings-fine-dining-glassware-beautiful-blurred-background-events-weddings-preparation-holiday-passover-139822025.jpg ') no-repeat ;
-    background-size: cover;
-    background-position: center;
-  } */
+
 .wrapper{
     position: relative;
-    width: 650px;
-    height: 650px;
+    width: 450px;
+    height: 450px;
     border-radius: 10px;
     color: #fff;
     background: transparent;
@@ -26,11 +12,21 @@
     display: flex;
     align-items: center;
     overflow: hidden;
-
+    
 }
 .wrapper.active{
-    height: 620px;  
+    height: 610px;  
+    width: 650px;
 }
+.wrapper.active .input-box input{
+    padding: 6px 6px 10px 10px;
+    width: 90%;
+    height: 50%;
+}
+.wrapper.active button{
+    width: 600px;
+}
+
 .wrapper .form-box{
     width: 100%;
     padding: 30px;
@@ -66,14 +62,14 @@ form .input-box{
 }
 .input-box input{
     width: 100%;
-    height: 100%;
+    height: 50%;
     background: transparent;
     border: none;
     outline: none;
     border: 2px solid rgba(255, 255, 255, .1);
     border-radius: 40px;
     color: #fff;
-    padding: 0px 6px 10px 10px;
+    padding: 6px 6px 10px 10px;
 }
 .input-box input::placeholder{
     color: #fff;
