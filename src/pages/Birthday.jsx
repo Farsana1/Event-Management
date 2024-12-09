@@ -1,5 +1,5 @@
-// import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Birthday() {
   return (
