@@ -9,7 +9,7 @@ import Birthday from './pages/Birthday';
 import LoginRegister from './pages/LoginRegister';
 import { useState } from 'react';
 import Event from './pages/Event';
-import Landingpage from './pages/Landingpage';
+import LandingPage from './pages/LandingPage';
 import HomeHeader from './components/HomeHeader';
 import HomeFooter from './components/HomeFooter';
 import BirthdayCake from './pages/birthday/BirthdayCake'
@@ -33,7 +33,7 @@ function App() {
             element={
               <>
                 <Header />
-                <Landingpage />
+                <LandingPage />
                 <Footer />
               </>
             }
