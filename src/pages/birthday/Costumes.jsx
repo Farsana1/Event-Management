@@ -52,7 +52,7 @@ function Costumes() {
                                 style={{ objectFit: 'cover', height: '250px' }}
                             />
                             <div className="card-body d-flex justify-content-between align-items-center">
-                                <h5 className="card-title text-center">Pink Fork</h5>
+                                <h5 className="card-title text-center">Pink Frock</h5>
                                 <FontAwesomeIcon icon={faHeart} className="fa-xl" style={{color: "#ff0000",}} />
                             </div>
                         </div>

@@ -12,6 +12,12 @@ import Event from './pages/Event';
 import Landingpage from './pages/Landingpage';
 import HomeHeader from './components/HomeHeader';
 import HomeFooter from './components/HomeFooter';
+import BirthdayCake from './pages/birthday/BirthdayCake'
+import Accessories from './pages/birthday/Accessories'
+import Venue from './pages/birthday/Venue'
+import Services from './pages/birthday/Services'
+import Gifts from './pages/birthday/Gifts'
+import Costumes from './pages/birthday/Costumes'
 
 function App() {
   // State for login status
@@ -72,6 +78,50 @@ function App() {
               </>
             }
           />
+
+<Route path='/birthday/BirthdayCake' element={
+  <>
+  <Header />
+  <BirthdayCake/>
+  <Footer />
+</>
+  }/>
+        <Route path='/birthday/Accessories' element={
+          <>
+          <Header />
+          <Accessories/>
+          <Footer />
+        </>
+         }/>
+        <Route path='/birthday/Venue' element={
+          <>
+          <Header />
+          <Venue/>
+          <Footer />
+        </>
+         }/>
+        <Route path='/birthday/Services' element={
+          <>
+          <Header />
+          <Services/>
+          <Footer />
+        </>
+          }/>
+        <Route path='/birthday/Gifts' element={
+          <>
+          <Header />
+          <Gifts/>
+          <Footer />
+        </>
+          }/>
+        <Route path='/birthday/Costumes' element={
+          <>
+          <Header />
+          <Costumes/>
+          <Footer />
+        </>
+          }/>
+
 
           {/* Routes with HomeHeader and HomeFooter */}
           <Route
