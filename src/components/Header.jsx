@@ -6,7 +6,7 @@ import Logo from './Logo';
 const Header = ({ isLogged }) => {
   return (
     <header className="header">
-      <div className="logo">
+     {/*  <div className="logo">
         <Logo />
       </div>
       <nav className="nav">
@@ -34,7 +34,7 @@ const Header = ({ isLogged }) => {
             </>
           )}
         </ul>
-      </nav>
+      </nav> */}
     </header>
   );
 };

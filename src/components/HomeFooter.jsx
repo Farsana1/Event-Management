@@ -1,12 +1,13 @@
 import React from 'react';
 import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedinIn } from 'react-icons/fa';
-import './Footer.css';
+import './HomeFooter.css';
 import Logo from './Logo';
 
-const Footer = () => {
+
+const HomeFooter = () => {
   return (
     <footer className="footer">
-     {/*  <div className="footer-container">
+      <div className="footer-container">
         <div className="footer-logo">
           <Logo />
           <p>Your trusted partner for amazing events.</p>
@@ -40,9 +41,12 @@ const Footer = () => {
       </div>
       <div className="footer-bottom">
         <p>&copy; {new Date().getFullYear()} Eventify. All Rights Reserved.</p>
-      </div> */}
+      </div>
     </footer>
   );
 };
 
-export default Footer;
+
+export default HomeFooter;
+
+

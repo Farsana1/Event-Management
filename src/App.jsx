@@ -1,47 +1,103 @@
-import { Route, Routes } from 'react-router-dom'
-import './App.css'
-import Header from './components/Header'
-import Footer from './components/Footer'
-import Home from './pages/Home'
-import Wedding from './pages/Wedding'
-import Birthday from './pages/Birthday'
-import LoginRegister from './pages/LoginRegister'
-import BirthdayCake from './pages/birthday/BirthdayCake'
-import Accessories from './pages/birthday/Accessories'
-import Venue from './pages/birthday/Venue'
-import Services from './pages/birthday/Services'
-import Gifts from './pages/birthday/Gifts'
-import Costumes from './pages/birthday/Costumes'
-import HouseWarming from './pages/HouseWarming'
-import { useState } from 'react'
-import Event from './pages/Event'
+import { Route, Routes } from 'react-router-dom';
+import './App.css';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import Wedding from './pages/Wedding';
+import HouseWarming from './pages/HouseWarming';
+import Birthday from './pages/Birthday';
+import LoginRegister from './pages/LoginRegister';
+import { useState } from 'react';
+import Event from './pages/Event';
+import Landingpage from './pages/Landingpage';
+import HomeHeader from './components/HomeHeader';
+import HomeFooter from './components/HomeFooter';
 
 function App() {
-  // js code
-  const [isLogged ,setIsLogged]=useState(false)
+  // State for login status
+  const [isLogged, setIsLogged] = useState(true);
 
   return (
     <>
-      {/* jsx content */}
-      <Header isLogged = {isLogged} />
-    <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/wedding' element={<Wedding/>}/>
-        <Route path='/birthday' element={<Birthday/>}/>
-        <Route path='/loginregister' element={<LoginRegister/>}/>
-        <Route path='/birthday/BirthdayCake' element={<BirthdayCake/>}/>
-        <Route path='/birthday/Accessories' element={<Accessories/>}/>
-        <Route path='/birthday/Venue' element={<Venue/>}/>
-        <Route path='/birthday/Services' element={<Services/>}/>
-        <Route path='/birthday/Gifts' element={<Gifts/>}/>
-        <Route path='/birthday/Costumes' element={<Costumes/>}/>
-        <Route path='/housewarming' element={<HouseWarming />}/>
-        <Route path='/eventmanage' element={<Event/>}/>
-    </Routes>
-    <Footer/>
-      
+      <div>
+        <Routes>
+          {/* Routes with Default Header and Footer */}
+          <Route
+            path='/'
+            element={
+              <>
+                <Header />
+                <Landingpage />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path='/wedding'
+            element={
+              <>
+                <Header />
+                <Wedding />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path='/birthday'
+            element={
+              <>
+                <Header />
+                <Birthday />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path='/housewarming'
+            element={
+              <>
+                <Header />
+                <HouseWarming />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path='/loginregister'
+            element={
+              <>
+                <Header />
+                <LoginRegister />
+                <Footer />
+              </>
+            }
+          />
+
+          {/* Routes with HomeHeader and HomeFooter */}
+          <Route
+            path='/home'
+            element={
+              <>
+                <HomeHeader isLogged={isLogged} />
+                <Home />
+                <HomeFooter />
+              </>
+            }
+          />
+          <Route
+            path='/eventmanage'
+            element={
+              <>
+                <HomeHeader isLogged={isLogged} />
+                <Event />
+                <HomeFooter />
+              </>
+            }
+          />
+        </Routes>
+      </div>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
