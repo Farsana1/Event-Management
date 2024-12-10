@@ -1,0 +1,9 @@
+.logo-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.2em;
+    color: #008080; /* Teal primary color */
+  }
+  .logo-title span {
+    color: #FFD700; /* Coral accent */
+  }
+  

@@ -12,14 +12,18 @@ import Venue from './pages/birthday/Venue'
 import Services from './pages/birthday/Services'
 import Gifts from './pages/birthday/Gifts'
 import Costumes from './pages/birthday/Costumes'
+import HouseWarming from './pages/HouseWarming'
+import { useState } from 'react'
+import Event from './pages/Event'
 
 function App() {
   // js code
+  const [isLogged ,setIsLogged]=useState(false)
 
   return (
     <>
       {/* jsx content */}
-      <Header/>
+      <Header isLogged = {isLogged} />
     <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/wedding' element={<Wedding/>}/>
@@ -31,6 +35,8 @@ function App() {
         <Route path='/birthday/Services' element={<Services/>}/>
         <Route path='/birthday/Gifts' element={<Gifts/>}/>
         <Route path='/birthday/Costumes' element={<Costumes/>}/>
+        <Route path='/housewarming' element={<HouseWarming />}/>
+        <Route path='/eventmanage' element={<Event/>}/>
     </Routes>
     <Footer/>
       

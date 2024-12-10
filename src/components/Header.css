@@ -1,0 +1,118 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #F7F7F7; /* Light background for elegance */
+  padding: 15px 30px; /* Slightly increased padding for breathing room */
+  color: #333333;
+  flex-wrap: nowrap;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1px solid #E0E0E0; /* Subtle border for separation */
+  top: 0;
+  z-index: 1000;
+}
+
+.logo h1 {
+  margin: 0;
+  font-size: 2.2em;
+  white-space: nowrap;
+  font-family: 'Poppins', sans-serif; /* Modern font */
+  color: #008080; /* Teal primary color */
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px; /* More spacing for a clean look */
+  padding: 0;
+  margin: 0;
+}
+
+.nav li {
+  white-space: nowrap;
+}
+
+.nav button {
+  background: #FFD700; /* Coral accent color */
+  border: 2px solid #FFD700;
+  border-radius: 25px; /* Fully rounded for modern style */
+  color: #FFFFFF;
+  cursor: pointer;
+  font-family: 'Roboto', sans-serif; /* Clean and simple font */
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px; /* Comfortable padding */
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.nav button:hover {
+  color: #FFD700;
+  background: #FFFFFF !important;
+  border: 2px solid #FFD700; /* Elegant hover effect */
+}
+
+.nav button span {
+  margin-left: 0.5rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .header {
+    flex-direction: row;
+  }
+
+  .logo h1 {
+    font-size: 1.8em;
+  }
+
+  .nav ul {
+    justify-content: flex-end;
+    flex-wrap: nowrap;
+    gap: 10px;
+  }
+
+  .nav button {
+    font-size: 1.1em;
+  }
+
+  .nav button span {
+    display: none; /* Hide text on small screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .logo h1 {
+    font-size: 1.4em;
+  }
+
+  .nav ul {
+    gap: 6px;
+  }
+
+  .nav button {
+    font-size: 0.9em;
+    padding: 8px 15px; /* Adjust for smaller screens */
+  }
+}
+
+@media (max-width: 425px) {
+  .header {
+    padding: 10px 8px !important; /* Adjust for smaller screens */
+  }
+  .logo h1 {
+    font-size: 1.2em;
+  }
+
+  .nav ul {
+    gap: 4px;
+  }
+
+  .nav button {
+    font-size: 0.9em;
+    padding: 8px; /* Adjust for smaller screens */
+  }
+}

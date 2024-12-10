@@ -1,0 +1,119 @@
+.contact-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background: linear-gradient(135deg, #E8F6F6, #FDFDFD); /* Soft gradient */
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Gentle shadow */
+  font-family: 'Poppins', sans-serif;
+}
+
+.contact-content {
+  max-width: 700px;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.contact-content h2 {
+  color: #008080; /* Teal for headings */
+  margin-bottom: 20px;
+  font-size: 2.5em;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.contact-content p {
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.8;
+  font-size: 1.1em;
+}
+
+.contact-form {
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 600;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #008080;
+  outline: none;
+  box-shadow: 0 0 4px rgba(0, 128, 128, 0.4);
+}
+
+button {
+  width: 100%;
+  padding: 15px 20px;
+  background-color: #FFD700 !important; /* Primary color for buttons */
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.2em;
+  font-weight: 600;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #FFD700;
+  transform: scale(1.03);
+}
+
+.contact-details p {
+  margin: 5px 0;
+  color: #666;
+  font-size: 1em;
+}
+
+.contact-details p span {
+  font-weight: 600;
+  color: #008080;
+}
+
+@media (max-width: 768px) {
+  .contact-content {
+    padding: 10px;
+  }
+
+  button {
+    font-size: 1em;
+  }
+}
+
+@media (max-width: 480px) {
+  .contact-section {
+    padding: 30px 10px;
+  }
+
+  .contact-content h2 {
+    font-size: 2em;
+  }
+
+  button {
+    padding: 12px 15px;
+  }
+}

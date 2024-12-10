@@ -1,9 +1,12 @@
-import React from 'react'
+import React from 'react';
 
-function HouseWarming() {
+const HouseWarming = () => {
+  
   return (
-    <div>HouseWarming</div>
-  )
-}
+    <div>
+      HouseWarming
+    </div>
+  );
+};
 
-export default HouseWarming
+export default HouseWarming;
