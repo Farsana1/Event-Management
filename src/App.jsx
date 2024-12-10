@@ -1,27 +1,30 @@
-import { Route, Routes } from 'react-router-dom';
-import './App.css';
-import Header from './components/Header';
-import Footer from './components/Footer';
-import Home from './pages/Home';
-import Wedding from './pages/Wedding';
-import HouseWarming from './pages/HouseWarming';
-import Birthday from './pages/Birthday';
-import LoginRegister from './pages/LoginRegister';
-import { useState } from 'react';
-import Event from './pages/Event';
-import LandingPage from './pages/LandingPage';
-import HomeHeader from './components/HomeHeader';
-import HomeFooter from './components/HomeFooter';
-import BirthdayCake from './pages/birthday/BirthdayCake'
-import Accessories from './pages/birthday/Accessories'
-import Venue from './pages/birthday/Venue'
-import Services from './pages/birthday/Services'
-import Gifts from './pages/birthday/Gifts'
-import Costumes from './pages/birthday/Costumes'
+import { Route, Routes } from "react-router-dom";
+import "./App.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import Home from "./pages/Home";
+import Wedding from "./pages/Wedding";
+import HouseWarming from "./pages/HouseWarming";
+import Birthday from "./pages/Birthday";
+import LoginRegister from "./pages/LoginRegister";
+import { useState } from "react";
+import Event from "./pages/Event";
+import LandingPage from "./pages/LandingPage";
+import HomeHeader from "./components/HomeHeader";
+import HomeFooter from "./components/HomeFooter";
+import BirthdayCake from "./pages/birthday/BirthdayCake";
+import Accessories from "./pages/birthday/Accessories";
+import Venue from "./pages/birthday/Venue";
+import Services from "./pages/birthday/Services";
+import Gifts from "./pages/birthday/Gifts";
+import Costumes from "./pages/birthday/Costumes";
 
 function App() {
+  const [username, setusername] = useState("");
+
   // State for login status
   const [isLogged, setIsLogged] = useState(true);
+  
 
   return (
     <>
@@ -29,7 +32,7 @@ function App() {
         <Routes>
           {/* Routes with Default Header and Footer */}
           <Route
-            path='/'
+            path="/"
             element={
               <>
                 <Header />
@@ -39,7 +42,7 @@ function App() {
             }
           />
           <Route
-            path='/wedding'
+            path="/wedding"
             element={
               <>
                 <Header />
@@ -49,7 +52,7 @@ function App() {
             }
           />
           <Route
-            path='/birthday'
+            path="/birthday"
             element={
               <>
                 <Header />
@@ -59,7 +62,7 @@ function App() {
             }
           />
           <Route
-            path='/housewarming'
+            path="/housewarming"
             element={
               <>
                 <Header />
@@ -69,73 +72,90 @@ function App() {
             }
           />
           <Route
-            path='/loginregister'
+            path="/loginregister"
             element={
               <>
                 <Header />
-                <LoginRegister />
+                <LoginRegister setusername={setusername} />
                 <Footer />
               </>
             }
           />
 
-<Route path='/birthday/BirthdayCake' element={
-  <>
-  <Header />
-  <BirthdayCake/>
-  <Footer />
-</>
-  }/>
-        <Route path='/birthday/Accessories' element={
-          <>
-          <Header />
-          <Accessories/>
-          <Footer />
-        </>
-         }/>
-        <Route path='/birthday/Venue' element={
-          <>
-          <Header />
-          <Venue/>
-          <Footer />
-        </>
-         }/>
-        <Route path='/birthday/Services' element={
-          <>
-          <Header />
-          <Services/>
-          <Footer />
-        </>
-          }/>
-        <Route path='/birthday/Gifts' element={
-          <>
-          <Header />
-          <Gifts/>
-          <Footer />
-        </>
-          }/>
-        <Route path='/birthday/Costumes' element={
-          <>
-          <Header />
-          <Costumes/>
-          <Footer />
-        </>
-          }/>
-
+          <Route
+            path="/birthday/BirthdayCake"
+            element={
+              <>
+                <Header />
+                <BirthdayCake />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/birthday/Accessories"
+            element={
+              <>
+                <Header />
+                <Accessories />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/birthday/Venue"
+            element={
+              <>
+                <Header />
+                <Venue />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/birthday/Services"
+            element={
+              <>
+                <Header />
+                <Services />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/birthday/Gifts"
+            element={
+              <>
+                <Header />
+                <Gifts />
+                <Footer />
+              </>
+            }
+          />
+          <Route
+            path="/birthday/Costumes"
+            element={
+              <>
+                <Header />
+                <Costumes />
+                <Footer />
+              </>
+            }
+          />
 
           {/* Routes with HomeHeader and HomeFooter */}
           <Route
-            path='/home'
+            path="/home"
             element={
               <>
                 <HomeHeader isLogged={isLogged} />
-                <Home />
+                <Home username={username} />
                 <HomeFooter />
               </>
             }
           />
           <Route
-            path='/eventmanage'
+            path="/eventmanage"
             element={
               <>
                 <HomeHeader isLogged={isLogged} />
