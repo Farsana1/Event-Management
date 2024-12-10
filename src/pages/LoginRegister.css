@@ -20,8 +20,8 @@
 }
 .wrapper.active .input-box input{
     padding: 6px 6px 10px 10px;
-    width: 90%;
-    height: 50%;
+    width: 600px;
+    height: 100%;
 }
 .wrapper.active button{
     width: 600px;
@@ -115,3 +115,59 @@ form .register-link{
 .register-link p a:hover{
     text-decoration: underline;
 }
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    
+
+    .wrapper.active {
+        max-width: 400px;
+    }
+    .wrapper.active .input-box input{
+        max-width: 340px;
+        font-size: 14px;
+
+    }
+    .wrapper.active button{
+        max-width: 300px;
+        font-size: 14px;
+
+    }
+    .wrapper.active .input-box{
+        width: 100px;
+    }
+
+
+    form h1 {
+        font-size: 1.8rem;
+    }
+
+    
+}
+@media (max-width: 480px) {
+    
+    .wrapper.active {
+        max-width: 400px;
+    }
+    .wrapper.active .input-box input{
+        max-width: 340px;
+        font-size: 14px;
+
+    }
+    .wrapper.active button{
+        max-width: 300px;
+        font-size: 14px;
+
+    }
+    .wrapper.active .input-box{
+        width: 100px;
+    }
+
+
+    form h1 {
+        font-size: 1.8rem;
+    }
+
+   
+}
+
