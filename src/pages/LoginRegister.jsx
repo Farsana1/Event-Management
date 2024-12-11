@@ -4,7 +4,10 @@ import './Loginregister.css';
 import { serverUrl } from '../server';
 import { useNavigate } from 'react-router-dom';
 const Loginregister = ({setusername}) => {
+
+  
   const [action, setAction] = useState('');
+
   const [formData, setFormData] = useState({
     username: '',
     email: '',
