@@ -3,7 +3,7 @@ import axios from 'axios';
 import './Loginregister.css';
 import { serverUrl } from '../server';
 import { useNavigate } from 'react-router-dom';
-const Loginregister = () => {
+const Loginregister = ({setIsLogged}) => {
 
   
   const [action, setAction] = useState('');
@@ -87,7 +87,7 @@ const Loginregister = () => {
       if (response.data.length > 0) {
         //console.log('Login successful:', response.data);
         alert('Login successful!');
-    
+        
         setFormData({
             username:'',
             password:''
@@ -97,7 +97,7 @@ const Loginregister = () => {
         console.log(localStorage.getItem('username'));
         
         navigate('/home');
-        
+        setIsLogged(true)
       } else {
         alert('Invalid username or password.');
         setFormData({

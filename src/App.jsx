@@ -23,7 +23,7 @@ function App() {
  
 
   // State for login status
-  const [isLogged, setIsLogged] = useState(true);
+  const [isLogged, setIsLogged] = useState(false);
   
 
   return (
@@ -76,7 +76,7 @@ function App() {
             element={
               <>
                 <Header />
-                <LoginRegister  />
+                <LoginRegister  setIsLogged={setIsLogged}  />
                 <Footer />
               </>
             }
@@ -148,8 +148,8 @@ function App() {
             path="/home"
             element={
               <>
-                <HomeHeader isLogged={isLogged} />
-                <Home  />
+                <HomeHeader isLogged={isLogged}/>
+                <Home  setIsLogged={setIsLogged}   />
                {/*  <HomeFooter /> */}
               </>
             }
