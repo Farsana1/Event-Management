@@ -20,7 +20,7 @@ import Gifts from "./pages/birthday/Gifts";
 import Costumes from "./pages/birthday/Costumes";
 
 function App() {
-  const [username, setusername] = useState("");
+ 
 
   // State for login status
   const [isLogged, setIsLogged] = useState(true);
@@ -76,7 +76,7 @@ function App() {
             element={
               <>
                 <Header />
-                <LoginRegister setusername={setusername} />
+                <LoginRegister  />
                 <Footer />
               </>
             }
@@ -149,7 +149,7 @@ function App() {
             element={
               <>
                 <HomeHeader isLogged={isLogged} />
-                <Home username={username} />
+                <Home  />
                {/*  <HomeFooter /> */}
               </>
             }

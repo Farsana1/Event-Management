@@ -6,6 +6,11 @@ import { Link } from 'react-router-dom';
 
 
 function HomeHeader({ isLogged }) {
+
+  const HandleLogout = () => {
+    localStorage.removeItem('username');
+  }
+ 
   return (
     <header className="header">
     <div className="logo">
@@ -18,7 +23,7 @@ function HomeHeader({ isLogged }) {
             
             <Link to={'/'}>
             <li>
-                <button className="logout-button">
+                <button  className="logout-button" onClick={HandleLogout}>
                   <FaSignOutAlt /> <span>Logout</span>
                 </button>
                 </li>
