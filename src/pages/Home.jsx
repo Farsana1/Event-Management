@@ -5,7 +5,8 @@ import About from '../components/About'
 import Contact from '../components/Contact'
 
 
-function Home() {
+function Home({ username}) {
+console.log(username);
 
 
   return (
