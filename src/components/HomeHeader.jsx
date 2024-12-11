@@ -2,6 +2,7 @@ import React from 'react'
 import { FaSignInAlt, FaUserPlus, FaSignOutAlt } from 'react-icons/fa';
 import './Header.css';
 import Logo from './Logo';
+import { Link } from 'react-router-dom';
 
 
 function HomeHeader({ isLogged }) {
@@ -14,11 +15,15 @@ function HomeHeader({ isLogged }) {
       <ul>
         {isLogged ? (
           <>
+            
+            <Link to={'/'}>
             <li>
-              <button className="logout-button">
-                <FaSignOutAlt /> <span>Logout</span>
-              </button>
-            </li>
+                <button className="logout-button">
+                  <FaSignOutAlt /> <span>Logout</span>
+                </button>
+                </li>
+            </Link>
+           
           </>
         ) : (
           <>

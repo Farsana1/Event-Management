@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
 import './Event.css';
+import axios from 'axios';
+import { serverUrl } from '../server';
+
 
 const Event = () => {
   const [events, setEvents] = useState([]);
@@ -18,21 +21,36 @@ const Event = () => {
     setNewEvent({ ...newEvent, [name]: value });
   };
 
-  const handleAddEvent = () => {
-    setEvents([...events, { ...newEvent, id: Date.now() }]);
-    setNewEvent({
-      title: '',
-      venue: '',
-      costumes: '',
-      catering: '',
-      photography: '',
-      priceRange: ''
-    });
-    setIsModalOpen(false); // Close modal after adding event
+ 
+  const handleAdd = async (e) => {
+    e.preventDefault(); // Prevent default form submission behavior
+    if (!newEvent.title || !newEvent.venue || !newEvent.costumes || !newEvent.catering || !newEvent.photography || !newEvent.priceRange) {
+      alert('Please fill out all fields before submitting.');
+      return;
+    }  
+    try {
+      const response = await axios.post(`${serverUrl}/event`, newEvent); // Assuming your backend endpoint is at '/events'
+      console.log('Event added successfully:', response.data);
+      setEvents([...events, response.data]); // Update the UI with the saved event from backend
+      setNewEvent({
+        title: '',
+        venue: '',
+        costumes: '',
+        catering: '',
+        photography: '',
+        priceRange: ''
+      });
+      setIsModalOpen(false); // Close the modal
+    } catch (error) {
+      console.error('Error adding event:', error);
+      alert('Failed to add event. Please try again.');
+    }
   };
+  
+
 
   return (
-    <div className="event-page">
+    <div className="event-page mb-5 pb-5">
       <button className="add-btn" onClick={() => setIsModalOpen(true)}>
         Add Event Package
       </button>
@@ -81,7 +99,7 @@ const Event = () => {
               onChange={handleInputChange}
             />
             <div>
-              <button className="event-btn" onClick={handleAddEvent}>
+              <button className="event-btn" onClick={handleAdd}>
                 Add Event
               </button>
               <button

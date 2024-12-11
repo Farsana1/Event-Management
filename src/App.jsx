@@ -150,7 +150,7 @@ function App() {
               <>
                 <HomeHeader isLogged={isLogged} />
                 <Home username={username} />
-                <HomeFooter />
+               {/*  <HomeFooter /> */}
               </>
             }
           />
@@ -160,7 +160,7 @@ function App() {
               <>
                 <HomeHeader isLogged={isLogged} />
                 <Event />
-                <HomeFooter />
+              {/*   <HomeFooter /> */}
               </>
             }
           />

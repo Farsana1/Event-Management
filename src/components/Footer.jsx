@@ -21,6 +21,12 @@ function Footer() {
       </div>
 
       <div className="row w-100">
+
+      <div className="col-md-3 mt-5 text-light text-center">
+          <h2>Eventify</h2>
+         <p style={{textAlign:'justify'}}>Planning a full event has never been easier! We specialize in weddings, private parties, and occasions specifically for Keralites and Malayalees.</p>
+        </div>
+
       <div className="col-md-3 mt-5 text-light text-center">
           <h2>Quick Links</h2>
           <ul className='list-unstyled'>
@@ -35,31 +41,20 @@ function Footer() {
         <div className="col-md-3 mt-5 text-light text-center">
         <h2>Services</h2>
           <ul className='list-unstyled'>
-            <li>Events</li>
-            <li>wedding Planner</li>
-            <li>Music & Entertainments</li>
-            <li>Private Parties</li>
-            <li>Destination Wedding</li>
+            <li>Wedding Planner</li>
+            <li>Birthday Planner</li>
+            <li>House Warming</li>
           </ul>
         </div>
 
-        <div className="col-md-3 mt-5 text-light text-center">
-        <h2>Other Links</h2>
-          <ul className='list-unstyled'>
-            <li>Blog</li>
-            <li>Testimonials</li>
-            <li>Privacy Policy</li>
-            <li>Terms of Service</li>
-          </ul>
-        </div>
 
         <div className="col-md-3 mt-5 text-light text-center">
           <h2>Stay Connected</h2>
           <div className='mt-3'>
-            <form>
+           {/*  <form>
               <input type="email" name='email' placeholder='Email address' className='form-control' />
               <button type="submit" className='btn btn-success w-50 ms-4'>Submit</button>
-            </form>
+            </form> */}
             <div className='mt-4 d-flex align-items-center justify-content-between'>
             <FontAwesomeIcon icon={faWhatsapp} className='fa-2x'/>
             <FontAwesomeIcon icon={faInstagram} className='fa-2x'/>
