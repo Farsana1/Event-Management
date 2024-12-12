@@ -32,7 +32,7 @@ const HouseWarming = () => {
   return (
     <div className="container py-5">
       <h1 className="text-center mb-4" style={{ fontWeight: "bold", color: "#6c63ff" }}>
-        Birthday Packages
+        Housewarming Packages
       </h1>
       {isLoading ? (
         <p className="text-center" style={{ color: "#555", fontStyle: "italic" }}>

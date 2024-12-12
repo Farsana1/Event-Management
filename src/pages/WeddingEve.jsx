@@ -3,13 +3,13 @@ import React, { useState, useEffect } from 'react';
 import './Event.css';
 import { fetchEvents, addEvent, updateEvent, deleteEvent } from '../components/EventApi';
 
-function Event() {
+function WeddingEve() {
     const username = localStorage.getItem('username'); // Retrieve username from local storage
 
     const [events, setEvents] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [newEvent, setNewEvent] = useState({
-        type: 'birthday',
+        type: 'wedding',
         title: '',
         venue: '',
         costumes: '',
@@ -24,7 +24,7 @@ function Event() {
         const loadEvents = async () => {
             try {
                 const events = await fetchEvents(); // Fetch all events from the database
-                const weddingEvents = events.filter(event => event.type === 'birthday'); // Filter events where name is 'wedding'
+                const weddingEvents = events.filter(event => event.type === 'wedding'); // Filter events where name is 'wedding'
                 setEvents(weddingEvents); // Set the filtered events
             } catch (error) {
                 alert('Failed to fetch events. Please try again later.');
@@ -59,7 +59,7 @@ function Event() {
             }
 
             setNewEvent({
-                type: 'birthday',
+                type: 'wedding',
                 title: '',
                 venue: '',
                 costumes: '',
@@ -97,11 +97,10 @@ function Event() {
     return (
 
         <div
-        className="event-page">
-            <h1 className='text-center p-5'>Birthday Events</h1>
-      
+        className="event-page"
+    >
+        <h1 className='text-center p-5'>Wedding Events</h1>
         <div className="d-flex justify-content-center align-items-center w-100 h-100 ">
-            
             <button
                 className="add-btn p-3 btn rounded text-light btn-warning mt-3"
                 onClick={() => setIsModalOpen(true)}
@@ -115,7 +114,7 @@ function Event() {
                 <div className="modal-content">
                     <h3 className='text-success'>{isEditing ? 'Edit Event Package' : 'Add Event Package'}</h3>
                     {/* Form inputs */}
-                  
+                 
                         <input
                             type="text"
                             name="title"
@@ -207,4 +206,4 @@ function Event() {
     
     );
 };
-export default Event;
+export default WeddingEve;

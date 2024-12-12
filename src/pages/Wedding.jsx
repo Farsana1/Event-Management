@@ -34,7 +34,7 @@ const Wedding = () => {
   return (
     <div className="container py-5">
       <h1 className="text-center mb-4" style={{ fontWeight: "bold", color: "#6c63ff" }}>
-        Birthday Packages
+        Wedding Packages
       </h1>
       {isLoading ? (
         <p className="text-center" style={{ color: "#555", fontStyle: "italic" }}>

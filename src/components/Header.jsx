@@ -1,9 +1,13 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
+import Logo from './Logo';
 
 function Header() {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary bg-dark p-3">
+      <div className="logo">
+    <Logo />
+  </div>
       <div className="container-fluid">
         <button
           className="navbar-toggler"
@@ -70,9 +74,9 @@ function Header() {
             </li>
           </ul>
           <div className="ms-5">
-            <Link to="/loginregister">
+            {/* <Link to="/loginregister">
               <button className="btn btn-primary">Login</button>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

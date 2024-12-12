@@ -24,7 +24,7 @@ function HomeHeader({ isLogged }) {
         <ul>
           {username  ? (
             <>
-              <Link to={'/'}>
+              <Link to={'/home'} className="text-decoration-none">
                 <li>
                   <button className="logout-button" onClick={handleLogout}>
                     <FaSignOutAlt /> <span>Logout</span>

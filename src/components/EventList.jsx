@@ -11,15 +11,15 @@ const EventList = () => {
       <div className="event-list-content">
         <div className="event-box event-box-1">
           <h3>Birthday Event</h3>
-          <Link to="/eventmanage" className="event-link" state={"Birthday"}>Explore</Link>
+          <Link to="/birthdayeve" className="event-link" state={"Birthday"}>Explore</Link>
         </div>
         <div className="event-box event-box-2">
           <h3>Wedding Event</h3>
-          <Link to="/eventmanage" className="event-link" state={"Wedding"}>Explore</Link>
+          <Link to="/weddingeve" className="event-link" state={"Wedding"}>Explore</Link>
         </div>
         <div className="event-box event-box-3">
           <h3>Housewarming Event</h3>
-          <Link to="/eventmanage" className="event-link" state={"Housewarming"}>Explore</Link>
+          <Link to="/housewarmingeve" className="event-link" state={"Housewarming"}>Explore</Link>
         </div>
       </div>
     </section>
