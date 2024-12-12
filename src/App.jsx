@@ -20,10 +20,10 @@ import Gifts from "./pages/birthday/Gifts";
 import Costumes from "./pages/birthday/Costumes";
 
 function App() {
-  const [username, setusername] = useState("");
 
   // State for login status
-  const [isLogged, setIsLogged] = useState(true);
+  const [isLogged, setIsLogged] = useState(false);
+  const username = localStorage.getItem('username');
   
 
   return (
@@ -75,8 +75,8 @@ function App() {
             path="/loginregister"
             element={
               <>
-                <Header />
-                <LoginRegister setusername={setusername} />
+              {/*   <Header /> */}
+                <LoginRegister setIsLogged={setIsLogged} />
                 <Footer />
               </>
             }
@@ -149,7 +149,7 @@ function App() {
             element={
               <>
                 <HomeHeader isLogged={isLogged} />
-                <Home username={username} />
+                <Home setIsLogged={setIsLogged} isLogged={isLogged} />
                {/*  <HomeFooter /> */}
               </>
             }

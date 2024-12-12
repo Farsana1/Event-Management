@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 function HomeHeader({ isLogged }) {
   const navigate = useNavigate();
-
+  const username = localStorage.getItem('username');
   const handleLogout = () => {
     localStorage.removeItem('username');
   };
@@ -22,7 +22,7 @@ function HomeHeader({ isLogged }) {
       </div>
       <nav className="nav">
         <ul>
-          {isLogged ? (
+          {username ? (
             <>
               <Link to={'/'}>
                 <li>
