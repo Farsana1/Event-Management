@@ -3,6 +3,8 @@ import axios from 'axios';
 import './Loginregister.css';
 import { serverUrl } from '../server';
 import { useNavigate } from 'react-router-dom';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const Loginregister = ({setIsLogged}) => {
 
   
@@ -24,7 +26,6 @@ const Loginregister = ({setIsLogged}) => {
 
   const loginLink = () => {
     setAction('');
-
   };
 
   const handleInputChange = (e) => {
@@ -36,7 +37,7 @@ const Loginregister = ({setIsLogged}) => {
     e.preventDefault();
   
     if (formData.password !== formData.confirmPassword) {
-      alert('Passwords do not match.');
+      toast.error('Passwords do not match.');
       return;
     }
   
@@ -47,7 +48,7 @@ const Loginregister = ({setIsLogged}) => {
       );
   
       if (response.data.length > 0) {
-        alert('User with this email is already registered.');
+        toast.warning('User with this email is already registered.');
         return;
       }
   
@@ -58,7 +59,7 @@ const Loginregister = ({setIsLogged}) => {
       });
       
       //console.log('Registration successful:', registerResponse.data);
-      alert('Registration successful!');
+      toast.success('Registration successful!');
       setFormData({
         username: '',
         email: '',
@@ -70,7 +71,7 @@ const Loginregister = ({setIsLogged}) => {
      
     } catch (error) {
       console.error('Registration failed:', error);
-      alert('Registration failed. Try again.');
+      toast.error('Registration failed. Try again.');
     }
   };
   
@@ -86,7 +87,7 @@ const Loginregister = ({setIsLogged}) => {
       
       if (response.data.length > 0) {
         //console.log('Login successful:', response.data);
-        alert('Login successful!');
+        toast.error('Login successful!');
         
         setFormData({
             username:'',
@@ -99,7 +100,7 @@ const Loginregister = ({setIsLogged}) => {
         navigate('/home');
         setIsLogged(true)
       } else {
-        alert('Invalid username or password.');
+        toast.error('Invalid username or password.');
         setFormData({
             username:'',
             password:''
@@ -107,7 +108,7 @@ const Loginregister = ({setIsLogged}) => {
        
       }
     } catch (error) {
-      console.error('Login failed:', error);
+      toast.error('Login failed:', error);
       alert('Login failed. Try again.');
     }
   };
@@ -238,6 +239,7 @@ const Loginregister = ({setIsLogged}) => {
           </form>
         </div>
       </div>
+      <ToastContainer position='top-center' theme='colored' autoClose={2000} />
     </div>
   );
 };
