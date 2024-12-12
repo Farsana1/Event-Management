@@ -24,6 +24,8 @@ function App() {
   // State for login status
   const [isLogged, setIsLogged] = useState(false);
   const username = localStorage.getItem('username');
+ 
+ 
   
 
   return (
@@ -75,8 +77,8 @@ function App() {
             path="/loginregister"
             element={
               <>
-              {/*   <Header /> */}
-                <LoginRegister setIsLogged={setIsLogged} />
+                {/* <Header /> */}
+                <LoginRegister  setIsLogged={setIsLogged}  />
                 <Footer />
               </>
             }
@@ -148,8 +150,8 @@ function App() {
             path="/home"
             element={
               <>
-                <HomeHeader isLogged={isLogged} />
-                <Home setIsLogged={setIsLogged} isLogged={isLogged} />
+                <HomeHeader isLogged={isLogged}/>
+                <Home  setIsLogged={setIsLogged} isLogged={isLogged}   />
                {/*  <HomeFooter /> */}
               </>
             }
