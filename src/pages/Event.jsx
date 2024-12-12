@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Event.css';
-import axios from 'axios';
-import { serverUrl } from '../server';
-
+import { fetchEvents, addEvent, updateEvent, deleteEvent } from '../components/EventApi';
 
 const Event = () => {
+  const username = localStorage.getItem('username'); // Retrieve username from local storage
+
   const [events, setEvents] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [newEvent, setNewEvent] = useState({
@@ -15,23 +15,45 @@ const Event = () => {
     photography: '',
     priceRange: ''
   });
+  const [isEditing, setIsEditing] = useState(false);
+  const [editingEventId, setEditingEventId] = useState(null);
+
+  useEffect(() => {
+    const loadEvents = async () => {
+      try {
+        const events = await fetchEvents();
+        setEvents(events);
+      } catch (error) {
+        alert('Failed to fetch events. Please try again later.');
+      }
+    };
+
+    loadEvents();
+  }, []);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setNewEvent({ ...newEvent, [name]: value });
   };
 
- 
-  const handleAdd = async (e) => {
-    e.preventDefault(); // Prevent default form submission behavior
+  const handleAddOrEdit = async (e) => {
+    e.preventDefault();
     if (!newEvent.title || !newEvent.venue || !newEvent.costumes || !newEvent.catering || !newEvent.photography || !newEvent.priceRange) {
       alert('Please fill out all fields before submitting.');
       return;
-    }  
+    }
+
     try {
-      const response = await axios.post(`${serverUrl}/event`, newEvent); // Assuming your backend endpoint is at '/events'
-      console.log('Event added successfully:', response.data);
-      setEvents([...events, response.data]); // Update the UI with the saved event from backend
+      if (isEditing) {
+        // Update the event
+        const updatedEvent = await updateEvent(editingEventId, newEvent);
+        setEvents(events.map((event) => (event.id === editingEventId ? updatedEvent : event)));
+      } else {
+        // Add a new event
+        const addedEvent = await addEvent(newEvent);
+        setEvents([...events, addedEvent]);
+      }
+
       setNewEvent({
         title: '',
         venue: '',
@@ -40,25 +62,42 @@ const Event = () => {
         photography: '',
         priceRange: ''
       });
-      setIsModalOpen(false); // Close the modal
+      setIsModalOpen(false);
+      setIsEditing(false);
+      setEditingEventId(null);
     } catch (error) {
-      console.error('Error adding event:', error);
-      alert('Failed to add event. Please try again.');
+      alert('Failed to save event. Please try again.');
     }
   };
-  
-  
+
+  const handleEdit = (event) => {
+    setNewEvent(event);
+    setIsEditing(true);
+    setEditingEventId(event.id);
+    setIsModalOpen(true);
+  };
+
+  const handleDelete = async (id) => {
+    if (window.confirm('Are you sure you want to delete this event?')) {
+      try {
+        await deleteEvent(id);
+        setEvents(events.filter((event) => event.id !== id));
+      } catch (error) {
+        alert('Failed to delete event. Please try again.');
+      }
+    }
+  };
+
   return (
     <div className="event-page mb-5 pb-5">
-      <button className="add-btn btn p-3 btn-warning" onClick={() => setIsModalOpen(true)}>
-        Add Event Package
+      <button className="add-btn" onClick={() => setIsModalOpen(true)}>
+        {isEditing ? 'Edit Event Package' : 'Add Event Package'}
       </button>
 
-      {/* Modal */}
       {isModalOpen && (
         <div className="modal">
           <div className="modal-content">
-            <h3>Add Event Package</h3>
+            <h3>{isEditing ? 'Edit Event Package' : 'Add Event Package'}</h3>
             <input
               type="text"
               name="title"
@@ -98,12 +137,23 @@ const Event = () => {
               onChange={handleInputChange}
             />
             <div>
-              <button className="event-btn btn btn-warning me-3" onClick={handleAdd}>
-                Add Event
+              <button className="event-btn" onClick={handleAddOrEdit}>
+                {isEditing ? 'Update Event' : 'Add Event'}
               </button>
               <button
-                className="event-btn close-btn btn btn-warning"
-                onClick={() => setIsModalOpen(false)}
+                className="event-btn close-btn mt-3"
+                onClick={() => {
+                  setIsModalOpen(false);
+                  setIsEditing(false);
+                  setNewEvent({
+                    title: '',
+                    venue: '',
+                    costumes: '',
+                    catering: '',
+                    photography: '',
+                    priceRange: ''
+                  });
+                }}
               >
                 Close
               </button>
@@ -112,7 +162,6 @@ const Event = () => {
         </div>
       )}
 
-      {/* Event Cards */}
       <div className="event-cards mt-5">
         {events.map((event) => (
           <div key={event.id} className="event-card">
@@ -122,6 +171,10 @@ const Event = () => {
             <p><strong>Catering:</strong> {event.catering}</p>
             <p><strong>Photography:</strong> {event.photography}</p>
             <p><strong>Price Range:</strong> {event.priceRange}</p>
+         
+              <button className="btn" onClick={() => handleEdit(event)}>Edit</button>
+              <button className="btn" onClick={() => handleDelete(event.id)}>Delete</button>
+            
           </div>
         ))}
       </div>

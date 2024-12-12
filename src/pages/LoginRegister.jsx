@@ -3,7 +3,7 @@ import axios from 'axios';
 import './Loginregister.css';
 import { serverUrl } from '../server';
 import { useNavigate } from 'react-router-dom';
-const Loginregister = ({setusername}) => {
+const Loginregister = ({setIsLogged}) => {
 
   
   const [action, setAction] = useState('');
@@ -52,11 +52,8 @@ const Loginregister = ({setusername}) => {
       }
   
       // Register the new user
-      const reqbody={   username: formData.username,
-        email: formData.email,
-        organization: formData.organization,
-        password: formData.password,};
-      const registerResponse = await axios.post(`${serverUrl}/user`, {reqbody
+      const {username,email,organization,password}=formData
+      const registerResponse = await axios.post(`${serverUrl}/user`, {username,email,organization,password
      
       });
       
@@ -90,15 +87,17 @@ const Loginregister = ({setusername}) => {
       if (response.data.length > 0) {
         //console.log('Login successful:', response.data);
         alert('Login successful!');
-        setusername(formData.username)
+        
         setFormData({
             username:'',
             password:''
         })
        
-        localStorage.setItem('registeredEmail', response.data.username);
-        navigate('/home');
+        localStorage.setItem('username', formData.username);
+        console.log(localStorage.getItem('username'));
         
+        navigate('/home');
+        setIsLogged(true)
       } else {
         alert('Invalid username or password.');
         setFormData({
