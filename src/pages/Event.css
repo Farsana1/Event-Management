@@ -1,5 +1,8 @@
 .event-page {
-  margin-top: 10px;
+  background-image: url('https://static.vecteezy.com/system/resources/previews/007/455/142/non_2x/abstract-light-green-polygonal-space-background-with-connecting-dots-and-lines-connection-structure-and-science-background-futuristic-hud-design-free-vector.jpg');
+  background-size:stretch;
+  height: 100vh;
+  margin: 0;
   text-align: center;
   padding: 20px;
 }

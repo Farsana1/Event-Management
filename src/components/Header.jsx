@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 
 function Header() {
   return (
+
     <nav class="navbar navbar-expand-lg bg-body-tertiary bg-dark p-3">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">Navbar</a>
+    <div class="container-fluid" style={{position:'sticky'}}>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -26,10 +26,7 @@ function Header() {
           <li class="nav-item">
             <a class="nav-link" href="#" style={{color:'white' , marginRight:'70px'}}>Contact</a>
           </li>
-        </ul>
-        <div className='ms-5'>
-         <Link to={'/loginregister'}> <button className='btn btn-primary'>Login</button></Link>
-        </div>
+        </ul>      
       </div>
     </div>
   </nav>

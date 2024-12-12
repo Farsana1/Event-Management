@@ -47,11 +47,10 @@ const Event = () => {
     }
   };
   
-
-
+  
   return (
     <div className="event-page mb-5 pb-5">
-      <button className="add-btn" onClick={() => setIsModalOpen(true)}>
+      <button className="add-btn btn p-3 btn-warning" onClick={() => setIsModalOpen(true)}>
         Add Event Package
       </button>
 
@@ -99,11 +98,11 @@ const Event = () => {
               onChange={handleInputChange}
             />
             <div>
-              <button className="event-btn" onClick={handleAdd}>
+              <button className="event-btn btn btn-warning me-3" onClick={handleAdd}>
                 Add Event
               </button>
               <button
-                className="event-btn close-btn mt-3"
+                className="event-btn close-btn btn btn-warning"
                 onClick={() => setIsModalOpen(false)}
               >
                 Close
