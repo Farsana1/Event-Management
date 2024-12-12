@@ -117,7 +117,7 @@ function LandingPage() {
               />
               <Card.Body>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of the card's content.
+                Your wedding day is a celebration of love, joy, and togetherness, and we are here to make it unforgettable. Let us transform your dreams into a magical reality that you and your loved ones will cherish forever.
                 </Card.Text>
                 <div className='d-flex justify-content-center'><Link to={'/wedding'}><button className=' btn btn-primary'>About packages</button></Link></div>
               </Card.Body>
@@ -134,7 +134,7 @@ function LandingPage() {
               />
               <Card.Body>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of the card's content.
+                A birthday is more than just a celebration; it's a day to create cherished memories and laughter with loved ones. Let us help you throw a party filled with joy, fun, and unforgettable moments!
                 </Card.Text>
                 <div className='d-flex justify-content-center'><Link to={'/birthday'}><button className=' btn btn-primary'>About packages</button></Link></div>
               </Card.Body>
@@ -151,7 +151,7 @@ function LandingPage() {
               />
               <Card.Body>
                 <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of the card's content.
+                A housewarming is a beautiful beginning, marking the start of new memories in your dream home. Let us make your special day a cherished moment for you and your loved ones to treasure forever.
                 </Card.Text>
                 <div className='d-flex justify-content-center'><Link to={'/housewarming'}><button className=' btn btn-primary'>About packages</button></Link></div>
               </Card.Body>
