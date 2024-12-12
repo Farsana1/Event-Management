@@ -22,7 +22,7 @@ function HomeHeader({ isLogged }) {
       </div>
       <nav className="nav">
         <ul>
-          {isLogged ? (
+          {username  ? (
             <>
               <Link to={'/'}>
                 <li>
