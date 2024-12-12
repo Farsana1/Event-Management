@@ -8,6 +8,7 @@ const Event = () => {
   const [events, setEvents] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [newEvent, setNewEvent] = useState({
+    type:'',
     title: '',
     venue: '',
     costumes: '',
@@ -21,15 +22,17 @@ const Event = () => {
   useEffect(() => {
     const loadEvents = async () => {
       try {
-        const events = await fetchEvents();
-        setEvents(events);
+        const events = await fetchEvents(); // Fetch all events from the database
+        const weddingEvents = events.filter(event => event.type === 'birthday'); // Filter events where name is 'wedding'
+        setEvents(weddingEvents); // Set the filtered events
       } catch (error) {
         alert('Failed to fetch events. Please try again later.');
       }
     };
-
+  
     loadEvents();
   }, []);
+  
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -55,6 +58,7 @@ const Event = () => {
       }
 
       setNewEvent({
+        type:'',
         title: '',
         venue: '',
         costumes: '',
@@ -99,6 +103,13 @@ const Event = () => {
         <div className="modal">
           <div className="modal-content">
             <h3>{isEditing ? 'Edit Event Package' : 'Add Event Package'}</h3>
+            <input
+              type="text"
+              name="type"
+              placeholder="Event Type"
+              value={newEvent.type}
+              onChange={handleInputChange}
+            />
             <input
               type="text"
               name="title"
