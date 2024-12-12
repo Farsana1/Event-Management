@@ -62,6 +62,7 @@ const Event = () => {
         photography: '',
         priceRange: ''
       });
+
       setIsModalOpen(false);
       setIsEditing(false);
       setEditingEventId(null);
@@ -130,7 +131,7 @@ const Event = () => {
               onChange={handleInputChange}
             />
             <input
-              type="text"
+              type="number"
               name="priceRange"
               placeholder="Price Range (e.g., ₹65,000 - ₹80,000)"
               value={newEvent.priceRange}

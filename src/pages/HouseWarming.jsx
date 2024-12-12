@@ -29,7 +29,7 @@ const HouseWarming = () => {
 
   return (
     <div className="container py-5">
-      <h1 className="text-center mb-4">Wedding Packages</h1>
+      <h1 className="text-center mb-4">House Warming Packages</h1>
       {isLoading ? (
         <p className="text-center">Loading events...</p>
       ) : events.length > 0 ? (
