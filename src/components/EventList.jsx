@@ -11,7 +11,7 @@ const EventList = () => {
       <div className="event-list-content">
         <div className="event-box event-box-1">
           <h3>Birthday Event</h3>
-          <Link to="/birtheve" className="event-link" state={"Birthday"}>Explore</Link>
+          <Link to="/eventmanage" className="event-link" state={"Birthday"}>Explore</Link>
         </div>
         <div className="event-box event-box-2">
           <h3>Wedding Event</h3>
