@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import './Event.css';
 import { fetchEvents, addEvent, updateEvent, deleteEvent } from '../components/EventApi';
@@ -6,67 +5,10 @@ import { fetchEvents, addEvent, updateEvent, deleteEvent } from '../components/E
 function Event() {
     const username = localStorage.getItem('username'); // Retrieve username from local storage
 
-<<<<<<< HEAD
-  const [events, setEvents] = useState([]);
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [newEvent, setNewEvent] = useState({
-    type:'',
-    title: '',
-    venue: '',
-    costumes: '',
-    catering: '',
-    photography: '',
-    priceRange: ''
-  });
-  const [isEditing, setIsEditing] = useState(false);
-  const [editingEventId, setEditingEventId] = useState(null);
-
-  useEffect(() => {
-    const loadEvents = async () => {
-      try {
-        const events = await fetchEvents(); // Fetch all events from the database
-        const weddingEvents = events.filter(event => event.type === 'birthday'); // Filter events where name is 'wedding'
-        setEvents(weddingEvents); // Set the filtered events
-      } catch (error) {
-        alert('Failed to fetch events. Please try again later.');
-      }
-    };
-  
-    loadEvents();
-  }, []);
-  
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setNewEvent({ ...newEvent, [name]: value });
-  };
-
-  const handleAddOrEdit = async (e) => {
-    e.preventDefault();
-    if (!newEvent.title || !newEvent.venue || !newEvent.costumes || !newEvent.catering || !newEvent.photography || !newEvent.priceRange) {
-      alert('Please fill out all fields before submitting.');
-      return;
-    }
-
-    try {
-      if (isEditing) {
-        // Update the event
-        const updatedEvent = await updateEvent(editingEventId, newEvent);
-        setEvents(events.map((event) => (event.id === editingEventId ? updatedEvent : event)));
-      } else {
-        // Add a new event
-        const addedEvent = await addEvent(newEvent);
-        setEvents([...events, addedEvent]);
-      }
-
-      setNewEvent({
-        type:'',
-=======
     const [events, setEvents] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [newEvent, setNewEvent] = useState({
         type: '',
->>>>>>> origin/navii
         title: '',
         venue: '',
         costumes: '',
@@ -97,80 +39,6 @@ function Event() {
         setNewEvent({ ...newEvent, [name]: value });
     };
 
-<<<<<<< HEAD
-      {isModalOpen && (
-        <div className="modal">
-          <div className="modal-content">
-            <h3>{isEditing ? 'Edit Event Package' : 'Add Event Package'}</h3>
-            <input
-              type="text"
-              name="type"
-              placeholder="Event Type"
-              value={newEvent.type}
-              onChange={handleInputChange}
-            />
-            <input
-              type="text"
-              name="title"
-              placeholder="Event Title"
-              value={newEvent.title}
-              onChange={handleInputChange}
-            />
-            <textarea
-              name="venue"
-              placeholder="Venue Details"
-              value={newEvent.venue}
-              onChange={handleInputChange}
-            />
-            <textarea
-              name="costumes"
-              placeholder="Costume Recommendations"
-              value={newEvent.costumes}
-              onChange={handleInputChange}
-            />
-            <textarea
-              name="catering"
-              placeholder="Catering Menu"
-              value={newEvent.catering}
-              onChange={handleInputChange}
-            />
-            <textarea
-              name="photography"
-              placeholder="Photography Details"
-              value={newEvent.photography}
-              onChange={handleInputChange}
-            />
-            <input
-              type="number"
-              name="priceRange"
-              placeholder="Price Range (e.g., ₹65,000 - ₹80,000)"
-              value={newEvent.priceRange}
-              onChange={handleInputChange}
-            />
-            <div>
-              <button className="event-btn" onClick={handleAddOrEdit}>
-                {isEditing ? 'Update Event' : 'Add Event'}
-              </button>
-              <button
-                className="event-btn close-btn mt-3"
-                onClick={() => {
-                  setIsModalOpen(false);
-                  setIsEditing(false);
-                  setNewEvent({
-                    title: '',
-                    venue: '',
-                    costumes: '',
-                    catering: '',
-                    photography: '',
-                    priceRange: ''
-                  });
-                }}
-              >
-                Close
-              </button>
-            </div>
-          </div>
-=======
     const handleAddOrEdit = async (e) => {
         e.preventDefault();
         if (!newEvent.title || !newEvent.venue || !newEvent.costumes || !newEvent.catering || !newEvent.photography || !newEvent.priceRange) {
@@ -344,7 +212,6 @@ function Event() {
                     </div>
                 ))}
             </div>
->>>>>>> origin/navii
         </div>
     </div>
     
