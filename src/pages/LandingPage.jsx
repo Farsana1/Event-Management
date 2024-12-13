@@ -1,9 +1,46 @@
-import React from 'react';
+import React, { useState } from "react";
+import axios from "axios";
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
-import './LandingPage.css';  // We'll use an external stylesheet for custom styles.
-
+import './LandingPage.css';  
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 function LandingPage() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    eventType: "Wedding",
+    date: "",
+    guests: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async () => {
+    const { name, email, eventType, date, guests } = formData;
+
+    if (!name || !email || !eventType || !date || !guests) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    try {
+      const response = await axios.post("http://localhost:4000/request", formData);
+      if (response.status >=200 && response.status <300) {
+        toast.success("Event request submitted successfully!");
+        setFormData({ name: "", email: "", eventType: "", date: "", guests: "" }); 
+      } else {
+       toast.error("Failed to submit request. Please try again.");
+      }
+    } catch (error) {
+      console.error("Error submitting event request:", error);
+      toast.error("An error occurred while submitting your request.");
+    }
+  };
+
   return (
     <>
       <div className="container-fluid w-100" style={{ backgroundColor: '#f4f4f9' }}>
@@ -189,24 +226,64 @@ function LandingPage() {
             <p>Contact us today to make your vision a reality!</p>
           </div>
           <div className="col-md-6 p-5">
-            <form>
-              <input type="text" placeholder="Your Name" className="form-control w-75 mt-3" />
-              <input type="email" placeholder="Your Email" className="form-control w-75 mt-3" />
-              <select name="Event Type" className="form-select w-75 mt-3">
-                <option value="Wedding">Wedding</option>
-                <option value="Birthday">Birthday</option>
-                <option value="House Warming">House Warming</option>
-                <option value="Engagement">Engagement</option>
-              </select>
-              <input type="date" className="form-control w-75 mt-3" />
-              <input type="number" placeholder="Number of Guests" className="form-control w-75 mt-3" min={1} />
-              <button type="button" className="btn btn-warning w-50 mt-4" style={{ marginLeft: '10%' }}>
-                Submit
-              </button>
-            </form>
-          </div>
+      <form>
+        <input
+          type="text"
+          name="name"
+          placeholder="Your Name"
+          value={formData.name}
+          onChange={handleChange}
+          className="form-control w-75 mt-3"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Your Email"
+          value={formData.email}
+          onChange={handleChange}
+          className="form-control w-75 mt-3"
+        />
+        <select
+          name="eventType"
+          value={formData.eventType}
+          onChange={handleChange}
+          className="form-select w-75 mt-3"
+        >
+          <option value="Wedding">Wedding</option>
+          <option value="Birthday">Birthday</option>
+          <option value="House Warming">House Warming</option>
+          <option value="Engagement">Engagement</option>
+        </select>
+        <input
+          type="date"
+          name="date"
+          value={formData.date}
+          onChange={handleChange}
+          className="form-control w-75 mt-3"
+        />
+        <input
+          type="number"
+          name="guests"
+          placeholder="Number of Guests"
+          value={formData.guests}
+          onChange={handleChange}
+          className="form-control w-75 mt-3"
+          min={1}
+        />
+        <button
+          type="button"
+          className="btn btn-warning w-50 mt-4"
+          style={{ marginLeft: "10%" }}
+          onClick={handleSubmit}
+        >
+          Submit
+        </button>
+      </form>
+    </div>
         </div>
       </div>
+            <ToastContainer position='top-center' theme='colored' autoClose={2000} />
+      
     </>
   );
 }
