@@ -1,14 +1,16 @@
+
 import React, { useState, useEffect } from 'react';
 import './Event.css';
 import { fetchEvents, addEvent, updateEvent, deleteEvent } from '../components/EventApi';
+import HouseWarming from './HouseWarming';
 
-function Event() {
+function HousewarmingEve() {
     const username = localStorage.getItem('username'); // Retrieve username from local storage
 
     const [events, setEvents] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [newEvent, setNewEvent] = useState({
-        type: 'birthday',
+        type: 'housewarming',
         title: '',
         venue: '',
         costumes: '',
@@ -23,7 +25,7 @@ function Event() {
         const loadEvents = async () => {
             try {
                 const events = await fetchEvents(); // Fetch all events from the database
-                const weddingEvents = events.filter(event => event.type === 'birthday'); // Filter events where name is 'wedding'
+                const weddingEvents = events.filter(event => event.type === 'housewarming'); // Filter events where name is 'wedding'
                 setEvents(weddingEvents); // Set the filtered events
             } catch (error) {
                 alert('Failed to fetch events. Please try again later.');
@@ -58,7 +60,7 @@ function Event() {
             }
 
             setNewEvent({
-                type: 'birthday',
+                type: 'housewarming',
                 title: '',
                 venue: '',
                 costumes: '',
@@ -94,15 +96,13 @@ function Event() {
     };
 
     return (
-
-        <div
-        className="event-page">
-            <h1 className='text-center p-5'>Birthday Events</h1>
-      
-        <div className="d-flex justify-content-center align-items-center w-100 h-100 ">
-            
+        <>
+        <div className="event-page">   
+        <h1 className='text-center p-5'>Housewarming Events</h1>
+       
+        <div className="d-flex justify-content-center align-items-center w-100 h-100">
             <button
-                className="add-btn p-3 btn rounded text-light btn-warning mt-3"
+                className="add-btn p-3 btn rounded text-light btn-warning mt-2"
                 onClick={() => setIsModalOpen(true)}
             >
                 {isEditing ? 'Edit Event Package' : 'Add Event Package'}
@@ -114,7 +114,7 @@ function Event() {
                 <div className="modal-content">
                     <h3 className='text-success'>{isEditing ? 'Edit Event Package' : 'Add Event Package'}</h3>
                     {/* Form inputs */}
-                  
+                   
                         <input
                             type="text"
                             name="title"
@@ -203,7 +203,7 @@ function Event() {
             </div>
         </div>
     </div>
-    
+    </>
     );
 };
-export default Event;
+export default HousewarmingEve;

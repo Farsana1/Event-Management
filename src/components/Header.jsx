@@ -74,9 +74,9 @@ function Header() {
             </li>
           </ul>
           <div className="ms-5">
-            <Link to="/loginregister">
+            {/* <Link to="/loginregister">
               <button className="btn btn-primary">Login</button>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>

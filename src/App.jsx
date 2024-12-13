@@ -9,6 +9,7 @@ import Birthday from "./pages/Birthday";
 import LoginRegister from "./pages/LoginRegister";
 import { useState } from "react";
 import Event from "./pages/Event";
+import WeddingEve from "./pages/WeddingEve";
 import LandingPage from "./pages/LandingPage";
 import HomeHeader from "./components/HomeHeader";
 import HomeFooter from "./components/HomeFooter";
@@ -18,6 +19,7 @@ import Venue from "./pages/birthday/Venue";
 import Services from "./pages/birthday/Services";
 import Gifts from "./pages/birthday/Gifts";
 import Costumes from "./pages/birthday/Costumes";
+import HousewarmingEve from "./pages/HousewarmingEve";
 
 function App() {
 
@@ -157,11 +159,31 @@ function App() {
             }
           />
           <Route
-            path="/eventmanage"
+            path="/birthdayeve"
             element={
               <>
                 <HomeHeader isLogged={isLogged} />
                 <Event />
+              {/*   <HomeFooter /> */}
+              </>
+            }
+          />
+             <Route
+            path="/weddingeve"
+            element={
+              <>
+                <HomeHeader isLogged={isLogged} />
+                <WeddingEve/>
+              {/*   <HomeFooter /> */}
+              </>
+            }
+          />
+                 <Route
+            path="/housewarmingeve"
+            element={
+              <>
+                <HomeHeader isLogged={isLogged} />
+                <HousewarmingEve/>
               {/*   <HomeFooter /> */}
               </>
             }
