@@ -1,76 +1,75 @@
-import React from 'react'
-import { faFacebook, faInstagram, faTwitter, faWhatsapp, faYoutube } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from 'react';
+import { faFacebook, faInstagram, faTwitter, faWhatsapp, faYoutube } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './Footer.css';
 
 function Footer() {
   return (
-    <>
-    <div className='p-5 bg-dark w-100'>
-    <div className="container-fluid">
-      {/* logo */}
-      <div className="row w-100">
-        <div className="col-md-3">
-
-        </div>
-        <div className="col-md-6">
-        <p className='text-light text-center'>Planning a full event has never been easier! Events is an ISO 9001:2015 Certified Event Management Company based in Kerala, India, offering various services to make your events stress-free and memorable. From premium corporate events and destination wedding planning to small-scale birthday parties and private gatherings, you can be sure we have it all covered. With offices in Kochi, Thrissur, Calicut, and Trivandrum, we specialize in weddings, corporate events, private parties, and occasions specifically for Keralites and Malayalees.</p>
-        </div>
-        <div className="col-md-3">
-
-        </div>
-      </div>
-
-      <div className="row w-100">
-
-      <div className="col-md-3 mt-5 text-light text-center">
-          <h2>Eventify</h2>
-         <p style={{textAlign:'justify'}}>Planning a full event has never been easier! We specialize in weddings, private parties, and occasions specifically for Keralites and Malayalees.</p>
-        </div>
-
-      <div className="col-md-3 mt-5 text-light text-center">
-          <h2>Quick Links</h2>
-          <ul className='list-unstyled'>
-            <li>Home</li>
-            <li>About</li>
-            <li>Events</li>
-            <li>Gallery</li>
-            <li>Contact</li>
-          </ul>
-        </div>
-
-        <div className="col-md-3 mt-5 text-light text-center">
-        <h2>Services</h2>
-          <ul className='list-unstyled'>
-            <li>Wedding Planner</li>
-            <li>Birthday Planner</li>
-            <li>House Warming</li>
-          </ul>
-        </div>
-
-
-        <div className="col-md-3 mt-5 text-light text-center">
-          <h2>Stay Connected</h2>
-          <div className='mt-3'>
-           {/*  <form>
-              <input type="email" name='email' placeholder='Email address' className='form-control' />
-              <button type="submit" className='btn btn-success w-50 ms-4'>Submit</button>
-            </form> */}
-            <div className='mt-4 d-flex align-items-center justify-content-between'>
-            <FontAwesomeIcon icon={faWhatsapp} className='fa-2x'/>
-            <FontAwesomeIcon icon={faInstagram} className='fa-2x'/>
-            <FontAwesomeIcon icon={faYoutube} className='fa-2x' />
-            <FontAwesomeIcon icon={faFacebook} className='fa-2x'/>
-            <FontAwesomeIcon icon={faTwitter} className='fa-2x'/>
-
-            </div>
+    <footer className="footer bg-dark text-light py-5">
+      <div className="container">
+        <div className="row">
+          {/* About Section */}
+          <div className="col-md-4 mb-4 text-center text-md-start">
+            <h2 className="text-warning">Eventify</h2>
+            <p>
+              Planning a full event has never been easier! We specialize in weddings, private parties, and occasions specifically for Keralites and Malayalees.
+            </p>
           </div>
 
+          {/* Quick Links */}
+          <div className="col-md-2 mb-4 text-center">
+            <h5 className="text-warning">Quick Links</h5>
+            <ul className="list-unstyled">
+              <li className="mb-2"><a href="#home" className="text-light text-decoration-none">Home</a></li>
+              <li className="mb-2"><a href="#about" className="text-light text-decoration-none">About</a></li>
+              <li className="mb-2"><a href="#events" className="text-light text-decoration-none">Events</a></li>
+              <li className="mb-2"><a href="#gallery" className="text-light text-decoration-none">Gallery</a></li>
+              <li className="mb-2"><a href="#contact" className="text-light text-decoration-none">Contact</a></li>
+            </ul>
+          </div>
+
+          {/* Services */}
+          <div className="col-md-3 mb-4 text-center">
+            <h5 className="text-warning">Services</h5>
+            <ul className="list-unstyled">
+              <li className="mb-2">Wedding Planner</li>
+              <li className="mb-2">Birthday Planner</li>
+              <li className="mb-2">House Warming</li>
+            </ul>
+          </div>
+
+          {/* Stay Connected */}
+          <div className="col-md-3 text-center">
+            <h5 className="text-warning">Stay Connected</h5>
+            <div className="social-icons d-flex justify-content-center mt-3">
+              <a href="#" className="text-light mx-2" title="WhatsApp">
+                <FontAwesomeIcon icon={faWhatsapp} size="2x" />
+              </a>
+              <a href="#" className="text-light mx-2" title="Instagram">
+                <FontAwesomeIcon icon={faInstagram} size="2x" />
+              </a>
+              <a href="#" className="text-light mx-2" title="YouTube">
+                <FontAwesomeIcon icon={faYoutube} size="2x" />
+              </a>
+              <a href="#" className="text-light mx-2" title="Facebook">
+                <FontAwesomeIcon icon={faFacebook} size="2x" />
+              </a>
+              <a href="#" className="text-light mx-2" title="Twitter">
+                <FontAwesomeIcon icon={faTwitter} size="2x" />
+              </a>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer Bottom */}
+        <div className="row mt-4">
+          <div className="col text-center">
+            <p className="mb-0">&copy; {new Date().getFullYear()} Eventify. All rights reserved.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-</>
-  )
+    </footer>
+  );
 }
 
-export default Footer
+export default Footer;

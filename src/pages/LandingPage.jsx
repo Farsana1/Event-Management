@@ -200,7 +200,7 @@ function LandingPage() {
               </select>
               <input type="date" className="form-control w-75 mt-3" />
               <input type="number" placeholder="Number of Guests" className="form-control w-75 mt-3" min={1} />
-              <button type="submit" className="btn btn-primary w-50 mt-4" style={{ marginLeft: '25%' }}>
+              <button type="button" className="btn btn-warning w-50 mt-4" style={{ marginLeft: '10%' }}>
                 Submit
               </button>
             </form>
